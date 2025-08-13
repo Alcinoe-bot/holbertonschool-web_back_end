@@ -42,8 +42,8 @@ class Server:
         arguments page with default value 1 and page_size with
         default value 10
         """
-        assert isinstance(page) == int and page > 0
-        assert isinstance(page_size) == int and page_size > 0
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
         start, end = index_range(page, page_size)
         pages = []
         if start >= len(self.dataset()):
