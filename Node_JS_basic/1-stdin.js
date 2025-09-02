@@ -1,10 +1,10 @@
 process.stdout.write('Welcome to Holberton School, what is your name?\n');
 process.stdin.setEncoding('utf8');
 process.stdin.on('data', (data) => {
-  const name = data.replace('\n', '');
-  process.stdout.write(`Your name is: ${name}\n`);
+  process.stdout.write(`Your name is: ${data}`);
+  process.exit(0);
 });
 
-process.stdin.on('end', () => {
+process.on('exit', () => {
   process.stdout.write('This important software is now closing\n');
 });
