@@ -13,8 +13,9 @@ const app = http.createServer(async (req, res) => {
   if (req.url === '/students') {
     res.statusCode = 200;
     try {
-      const data = await countStudents(process.argv[2]);
-      res.end(`This is the list of our students\n${data.join('\n')}`);
+      const lines = await countStudents(process.argv[2]);
+      const body = ['This is the list of our students', ...(lines || [])].join('\n');
+      res.end(body);
     } catch (error) {
       res.end(`This is the list of our students\n${error.message}`);
     }
